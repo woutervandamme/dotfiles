@@ -1,0 +1,37 @@
+# See: /usr/share/doc/mpd/mpdconf.example
+
+#user "wouter"
+#pid_file "/run/mpd/mpd.pid"
+#db_file "/var/lib/mpd/mpd.db"
+#state_file "/var/lib/mpd/mpdstate"
+#playlist_directory "/var/lib/mpd/playlists"
+
+music_directory                 "/home/wouter/muziek"
+playlist_directory              "~/.mpd/playlists"
+db_file                         "~/.mpd/mpd.db"
+log_file                        "~/.mpd/mpd.log"
+#error_file                      "~/.mpd/mpd.error"
+#pid_file                        "~/.mpd/mpd.pid"
+state_file                      "~/.mpd/mpdstate"
+bind_to_address                 "192.168.1.5"
+port                            "6600"
+user                            "wouter"
+group                           "users"
+
+
+audio_output {
+        type                    "alsa"
+        name                    "Sound Card"
+        options                 "dev=dmixer"
+}
+
+audio_output {
+	type  "httpd"
+	name  "lummystream"
+	encoder  "lame"  
+	port  "8000"
+	quality  "5.0"   # do not define if bitrate is defined
+	# bitrate  "128"   # do not define if quality is defined
+	format  "44100:16:1" 
+	max_clients "0"   
+}
