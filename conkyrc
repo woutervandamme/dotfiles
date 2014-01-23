@@ -10,16 +10,18 @@ override_utf8_locale yes
 
 TEXT
 
-[{ "full_text" : "Wouter Van Damme" , "color" : "\#b72f62" } ,
- { "full_text" : "${exec /home/wouter/.i3/cmus.sh}" } ,
- { "full_text" : "vrij geheugen" , "color" : "\#7996a9"} ,
- { "full_text" : "${fs_free /home}" } , 
- { "full_text" : "Wifi" , "color" : "\#b72f62" } ,
- { "full_text" : "${wireless_essid wlp2s0}(${wireless_link_qual wlp2s0})" } ,
- { "full_text" : "Volume" , "color" : "\#43a81c" } ,
- { "full_text" : "${exec /home/wouter/.i3/volume.sh}" } ,
- { "full_text" : "Bat" , "color" : "\#7996a9" } ,
- { "full_text" : "${battery BAT1}" , "color" : 
-  ${if_match ${battery_percent BAT1}<20}"\#b95670"${else}"\#5f5f5f"${endif} } ,
+# { "full_text" : "batterij: ${battery BAT1}" , "color" :
+#  ${if_match ${battery_percent BAT1}<20}"\#b95670"${else}"\#5f5f5f"${endif} " } ,
  
+ 
+[
+ {"full_text": "Wouter Van Damme"},
+ {"full_text": "${exec /home/wouter/.i3/audio.sh}"},
+ {"full_text": "${fs_free /home}"},
+ { "full_text" : "${wireless_essid wlp2s0}(${wireless_link_qual wlp2s0})" } ,
+ {"full_text": "${exec /home/wouter/.i3/volume.sh}"},
+ { "full_text" : "Bat"  } ,
+ { "full_text" : "${battery BAT1}" , "color" : 
+    ${if_match ${battery_percent BAT1}<20}"\#b95670"${else}"\#5f5f5f"${endif} } ,
  { "full_text" : "${time %b %d %Y %I:%M}" }]  ,
+
